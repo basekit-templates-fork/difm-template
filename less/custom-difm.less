@@ -783,13 +783,18 @@ body {
 	font-size: 0;
 
     .imagewidget__image-link {
-    	width: 100%;
+    	width: 100vw;
+    	height: 100vh;
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    display: block;
+	    z-index: 1;
     }
     .image {
-		position: fixed;
-	    bottom: 0;
+		object-fit: cover;
 	    z-index: 1;
-	    width: 100%;
 	}
 	.imagewidget {
 		min-height: @footer-parallax-height;
@@ -801,6 +806,10 @@ body {
 			min-height: @footer-parallax-height * 0.5;
 		}
 	}
+}
+
+.imagewidget__figure {
+	perspective: none;
 }
 
 .footer-image-overlay {
