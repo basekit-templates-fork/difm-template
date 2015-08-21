@@ -2,10 +2,16 @@
 
 {% block content %}
 
-<div class="page--default">
+<div class="page  page--default">
 	<div class="site-container">
 
 		{% include "includes/header.twig" %}
+
+		<div class="page-title">
+			<div class="site-content">
+				{{ page.title }}
+			</div>
+		</div>
 
 		<div class="main">
 
