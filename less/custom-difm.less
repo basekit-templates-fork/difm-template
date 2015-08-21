@@ -593,12 +593,27 @@
 	}
 	.half {
 		width: 50%;
+
+		 @media @mobile {
+            width: 100%;
+        }
 	}
 	.thirds {
 		width: 33.333%;
+
+		 @media @mobile {
+            width: 100%;
+        }
 	}
 	.quarters {
 		width: 25%;
+
+		@media @tablet {
+            width: 50%;
+        }
+        @media @mobile {
+            width: 100%;
+        }
 	}
 
 }
