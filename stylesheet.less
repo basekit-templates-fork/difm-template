@@ -308,43 +308,73 @@ select::-ms-expand{
 }
 
 
-// Navigation
+// Header
 // ----------
 
-[data-widget-type="extendednavigation"] { width: 100%; }
+.template-header {
+    position: relative;
+    z-index: 8001;
+    width: 100%;
+    max-width: 100%;
+    padding: @header-spacing 0;
 
-// Navigation List
-.navigation-body {
     @media @tablet800px {
-        height: 0;
-        padding: 0;
-        opacity: 0;
-        visibility: hidden;
-        &.open {
-            height: 100%;
-            padding-bottom: 5px;
-            position: relative;
-            opacity: 1;
-            .transition(opacity 0.5s ease);
-            visibility: visible;
-        }
+        padding-bottom: 0!important;
+        margin-bottom: 0;
     }
-    .navigation-list {
-        margin-top: 0;
+
+    .flex-container {
+        align-items: center;
+
+        @media @tablet800px {
+            .flex-item:first-child,
+            .flex-item:nth-child(2) {
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
     }
 }
 
-// List Item
-.navigation-item {
+// Template Navigation
+.template-navigation {
+    @media @tablet800px {
+        margin-top: @header-spacing;
+        border-top: 1px solid @nav-border-color;
+    }
+}
+
+// Navigation List
+.navigation-list {
+    margin: 0;
+
+    @media @tablet800px {
+        display: none;
+        text-align: left;
+    }
+}
+.navigation-list.open {
     display: block;
-    white-space: normal;
+}
+
+// Navigation Item
+.navigation-item {
+    display: inline-block;
+    vertical-align: middle;
+    border-bottom: 0;
+
+    @media @tablet800px {
+        display: block;
+
+        &:first-child {
+            padding-top: 10px;
+            border-top: 1px solid @nav-border-color;
+        }
+    }
 
     &:hover {
         .navigation-list--children {
-            height: auto;
-            padding: 0;
-            position: relative;
-            opacity: 1;
+            position: absolute;
             -webkit-transform: translateY(0);
             transform: translateY(0);
             transition: height 0.75s ease-in-out, opacity 0.75s ease-in-out, visibility 0.75s ease-in-out;
@@ -355,78 +385,50 @@ select::-ms-expand{
             visibility: visible;
         }
     }
-    &:last-child {
-        border-bottom: 0;
-        &:after {
-            border-bottom: 0;
-        }
-    }
-    // Folder Styles at Mobile
-    &.folder {
-        ul {
-            @media @tablet800px {
-                height: 0;
-                padding: 0;
-                opacity: 0;
-                visibility: hidden;
-            }
-        }
-        &.open ul {
-            @media @tablet800px {
-                border-top: 1px solid darken(@color-swatch7, 10%);
-                height: auto;
-                padding: 0;
-                position: relative;
-                opacity: 1;
-                .transition(opacity 0.75s ease);
-                visibility: visible;
-                -webkit-transform: translateY(0);
-                transform: translateY(0);
-                .navigation-item--child .item-name {
-                    padding: 12px 0;
-                    &:before {
-                        content: "\00a0";
-                        position: relative;
-                    }
-                }
-            }
-        }
-    }
-    // Dropdown Item
+
     .item-name {
-        padding-left: 0;
-        .transition(all 0.5s ease-out);
-        &:hover {
-            color: darken(@color-swatch6, 40%);
+        padding-left: 30px;
+        color: @nav-text-color;
+        text-transform: uppercase;
+
+        @media @tablet800px {
+            padding-left: 0;
         }
-    }
-    // Dropdown Arrow
-    .item-name--parent:after {
-        border: 4px solid transparent;
-        border-top-color: @font-swatch6-color;
-        margin: 2px 8px;
+
+        &:hover {
+            color: @nav-text-color-active;
+        }
+
+        &.item-name--parent {
+            padding-right: 0;
+        }
     }
 
-    // Dropdown Folder
-    .navigation-list--children {
-        display: block;
-        position: absolute;
-        height: 0;
-        padding: 0;
-        opacity: 0;
-        overflow: hidden;
-        -webkit-transform: translateY(-20px);
-        transform: translateY(-20px);
-        visibility: hidden;
-        transition: height 0.75s ease-in-out, opacity 0.75s ease-in-out, visibility 0.75s ease-in-out;
-        -moz-transition:    height 0.75s ease-in-out, opacity 0.75s ease-in-out, visibility 0.75s ease-in-out;
-        -ms-transition:     height 0.75s ease-in-out, opacity 0.75s ease-in-out, visibility 0.75s ease-in-out;
-        -o-transition:      height 0.75s ease-in-out, opacity 0.75s ease-in-out, visibility 0.75s ease-in-out;
-        -webkit-transition-: height 0.75s ease-in-out, opacity 0.75s ease-in-out, visibility 0.75s ease-in-out;
+    &.selected .item-name {
+        color: @nav-text-color-active;
     }
-    // Dropdown list items
-    .navigation-item--child .item-name {
-        padding: 12px 0 12px 12px;
+
+    &:last-child .item-name {
+        padding-right: 0;
+    }
+}
+
+// Dropdown Menu
+.navigation-item.folder .navigation-list {
+    position: absolute;
+    min-width: 150px;
+
+    .navigation-item {
+        display: block;
+        width: 100%;
+        background-color: @site-bg-color;
+    }
+    .navigation-item--child {
+        padding: 0 10px;
+
+        .item-name {
+            padding: 4px 10px;
+        }
     }
 }
 
@@ -455,55 +457,3 @@ select::-ms-expand{
 }
 
 
-
-// -----------------------------
-// 6. Main
-// -----------------------------
-
-
-div[role="main"] {
-    display: inline-block;
-    float: left;
-    padding: 65px 0 0 350px;
-    width: 100%;
-    -webkit-overflow-scrolling: touch;
-    @media only screen and (max-width: 1024px) {
-        padding-left: 200px;
-    }
-    @media @tablet800px {
-        display: block;
-        overflow-y: initial;
-        padding: 20px 0 0;
-        width: 100%;
-    }
-}
-
-h1 {
-    padding-bottom: 15px;
-    @media @mobile {
-        font-size: bkscale(@font-swatch1-font-size, 0.85);
-    }
-}
-
-h2 {
-    @media @mobile {
-        font-size: bkscale(@font-swatch2-font-size, 0.85);
-    }
-}
-
-// Image Widget
-// ------------
-
-.image-description {
-    font-size: bkscale(@font-swatch5-font-size, 0.85);
-}
-
-
-// -----------------------------
-// 7. Footer
-// -----------------------------
-
-
-.template-footer {
-
-}

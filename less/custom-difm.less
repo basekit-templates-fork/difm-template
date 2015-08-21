@@ -105,7 +105,7 @@
 	}
 
 	// Transparency (Options: .full-overlay, .type-overlay, .none)
-	.feature-transparency .type-overlay;
+	.feature-transparency .full-overlay;
 
 }
 
@@ -221,37 +221,6 @@
 	// Full
 	.full {
 		display: block;
-
-		// Header
-		.template-header {
-			width: 100%;
-			max-width: 100%;
-			padding: @header-spacing 0;
-		}
-		.flex-container {
-			align-items: center;
-
-			@media @tablet800px {
-				.flex-item:first-child,
-				.flex-item:nth-child(2) {
-					display: inline-block;
-					vertical-align: middle;
-				}
-			}
-		}
-		.template-navigation {
-			@media @tablet800px {
-				margin-top: @header-spacing;
-				border-top: 1px solid @nav-border-color;
-			}
-		}
-
-		// Main
-		.main {
-			width: 100%;
-			margin: 0;
-			padding: @site-spacing 0;
-		}
 	}
 
 }
@@ -389,7 +358,6 @@
 			color: @site-bg-color;
 		}
 		.navigation-item {
-			border-bottom: 1px solid lighten(@color-swatch4, 10%);
 
 			.item-name {
 				color: darken(@site-bg-color, 20%);
@@ -402,6 +370,10 @@
 				color: @site-bg-color;
 			}
 		}
+		.navigation-list--children .navigation-item .item-name:hover {
+			color: @heading-color;
+		}
+
 	}
 
 }
@@ -638,13 +610,7 @@ body {
 	position: relative;
 	display: block;
 	width: @site-content-width;
-	// max-width: 90%;
 	margin: 0 auto;
-}
-
-// Zone Content
-.zone-content {
-	// padding: 0 12px;
 }
 
 
@@ -658,105 +624,24 @@ body {
 }
 
 
-// Header
+// Logo
 // ----------
 
-.template-header {
-	position: relative;
-	z-index: 8001;
-
-	@media @tablet800px {
-		padding-bottom: 0!important;
-		margin-bottom: 0;
-	}
-
-	.navigation-list {
-		margin-bottom: 0;
-
-		@media @tablet800px {
-			text-align: left;
-		}
-	}
-
-	.navigation-item {
-		display: inline-block;
-		vertical-align: middle;
-		border-bottom: 0;
-
-		@media @tablet800px {
-			display: block;
-
-			&:first-child {
-				padding-top: 10px;
-				border-top: 1px solid @nav-border-color;
-			}
-		}
-
-		.item-name {
-			padding-left: 30px;
-
-			@media @tablet800px {
-				padding-left: 0;
-			}
-
-			&.item-name--parent {
-				padding-right: 0;
-			}
-		}
-
-		&:last-child .item-name {
-			padding-right: 0;
-		}
-	}
-
-    // Dropdown menu
-    .navigation-item.folder .navigation-list {
-		position: absolute;
-		min-width: 150px;
-
-		.navigation-item {
-			display: block;
-			width: 100%;
-			background-color: @site-bg-color;
-		}
-		.navigation-item--child {
-			padding: 0 10px;
-
-			.item-name {
-				padding: 4px 10px;
-			}
-		}
-	}
-}
-
-// Logo
 .logo {
 	line-height: 0;
 	font-size: 0;
 }
 
+
 // Company Name
+// ------------
+
 .companyname {
     display: block;
 
     @media @tablet800px {
     	margin-top: 20px;
     }
-}
-
-// Navigation
-.navigation-list--children {
-	background-color: transparent;
-}
-.navigation-item {
-	border-bottom: 1px solid @nav-border-color;
-}
-.navigation-item .item-name {
-    color: @nav-text-color;
-    text-transform: uppercase;
-}
-.navigation-item.selected .item-name {
-    color: @nav-text-color-active;
 }
 
 
@@ -835,6 +720,7 @@ body {
 	position: relative;
 	z-index: 7000;
 	background-color: @site-bg-color;
+	padding: @site-spacing 0;
 }
 
 
