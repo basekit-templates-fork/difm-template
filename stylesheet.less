@@ -2,17 +2,121 @@
 // Table of Contents
 // -----------------------------
 
-//  1.   LESS Includes
-//  2.   Mixins
-//  3.   Global
-//  4.   Layout
-//  5.   Header
-//  6.   Main
-//  7.   Footer
+//  1.   Custom Site Varaibles
+//  2.   LESS Includes
+//  3.   Mixins
+//  4.   Global
+//  5.   Layout
+//  6.   Header
+
+
+
+// -----------------------
+// Custom Site Variables
+// -----------------------
+
+// Change the values below to achieve
+// different layouts and positioning
+
+
+// Site Options
+// ------------
+
+@site-width:         100%;   // Site width
+@site-content-width: 90%;    // Content width (wrapper)
+@site-spacing:       50px;   // Site spacing
+
+.site-container {
+
+    // Position (Options: .left, .right, .center)
+    .site-position .center;
+
+    // Layout (Options: .sidebar-left, .sidebar-right, .full)
+    .site-layout .full;
+
+}
+
+
+// Header Options
+// --------------
+
+@header-spacing: 20px; // Header spacing
+
+.template-header  {
+
+    // Layout (Options: .left, .right, .central)
+    .header-layout .left;
+
+    // Position (Options: .standard, .overlap)
+    .header-position .standard;
+
+    // BG Colour (Options: .dark, .light)
+    .header-color .light;
+
+}
+
+
+// Feature Options
+// ---------------
+
+@feature-overlay-opacity: 0.6;           // Feature opacity
+@feature-overlay-color: @color-swatch4;  // Feature BG color
+
+.feature {
+
+    .content-inner-wrap {
+
+        // Height (Options: .small, .medium, .large)
+        .feature-height .large;
+
+        // Position (Options: .standard, .overlap)
+        .feature-position .standard;
+
+        // Alignment (Options: .left, .right, .center)
+        .feature-alignment .center;
+
+        // Parallax (Options: .on, .off)
+        .feature-parallax .on;
+    }
+
+    // Transparency (Options: .full-overlay, .type-overlay, .none)
+    .feature-transparency .type-overlay;
+
+}
+
+
+// Footer Options
+// --------------
+
+@footer-spacing:         100px; // Footer spacing
+@footer-parallax-height: 700px; // Footer parallax image
+
+.template-footer {
+
+    // Layout (Options: .single, .split)
+    .footer-layout .split;
+
+    // BG Colour (Options: .dark, .light)
+    .footer-color .light;
+
+}
+
+
+// Gallery Options
+// ---------------
+
+.gallery-item {
+
+    // Options: .full, .half, .thirds, .quarters
+    .gallery-layout .thirds;
+
+}
+
+
 
 
 // -----------------------------
-// 1. LESS Includes
+// 2. LESS Includes
 // -----------------------------
 
 
@@ -39,7 +143,7 @@
 
 
 // -----------------------------
-// 2. Mixins
+// 3. Mixins
 // -----------------------------
 
 
@@ -129,7 +233,7 @@
 
 
 // -----------------------------
-// 3. Global
+// 4. Global
 // -----------------------------
 
 // Links
@@ -237,7 +341,7 @@ select::-ms-expand{
 
 
 // -----------------------------
-// 4. Layout
+// 5. Layout
 // -----------------------------
 
 .home-page, .default-page {
@@ -247,7 +351,7 @@ select::-ms-expand{
 
 
 // -----------------------------
-// 5. Header
+// 6. Header
 // -----------------------------
 
 .company-link:hover {
