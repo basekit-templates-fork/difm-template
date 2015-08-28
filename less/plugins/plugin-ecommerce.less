@@ -22,19 +22,22 @@
     // Legend
     .legend {
         width: 100%;
-        padding: 10px 20px;
+        margin-bottom: 6px;
         background-color: @ecomproductslist__filters-legend-bg-color;
         color: @ecomproductslist__filters-legend-text-color;
     }
 
     // Form Body
     .form-body {
-        padding: 30px;
+
     }
 
     // Label
     .label {
         color: @ecomproductslist__filters-label-text-color;
+    }
+    .label--search {
+        display: none;
     }
 }
 .fieldset--search {
@@ -52,7 +55,6 @@
 .product-list {
     .clearfix;
     margin-bottom: 40px;
-    padding: @widget__spacing;
     background-color: @ecomproductslist__product-list-bg-color;
 }
 
@@ -95,13 +97,11 @@
 
     // Product Title
     .product-item-title {
-        margin-bottom: 20px;
+
     }
     .title-link {
-        display: inline-block;
-        padding: 14px;
-        background-color: @blogpostlist__title-bg-color;
-        color: @blogpostlist__title-text-color;
+        background-color: @ecomproductslist__title-bg-color;
+        color: @ecomproductslist__title-text-color;
     }
 }
 
@@ -113,8 +113,7 @@
 
 // Product Details
 .product-item-details {
-    margin: 0;
-    padding: 20px;
+    margin: 20px 0 0;
 }
 
 
@@ -125,7 +124,6 @@
 // -------------------------------
 
 .ecomproduct {
-    padding: @widget__spacing;
     background-color: @ecomproduct__bg-color;
 
     // Display buttons inline
@@ -137,7 +135,6 @@
 
 // Product Images
 .product-images {
-    padding: @widget__spacing;
     background-color: @ecomproduct__product-images-bg-color;
 }
 
@@ -148,7 +145,6 @@
 
 // Product Content
 .product-content {
-    padding: 0 @widget__spacing @widget__spacing;
     background-color: @ecomproduct__product-content-bg-color;
 }
 
@@ -160,24 +156,14 @@
     margin-bottom: 20px;
 }
 .product-title {
-    margin-bottom: 20px;
-    padding: 10px 14px;
     background-color: @ecomproduct__title-bg-color;
     color: @ecomproduct__title-text-color;
 }
 .product-price {
-    padding: 6px 10px;
     background-color: @ecomproduct__price-bg-color;
     color: @ecomproduct__price-text-color;
 }
 
-
-
-
-
-// -----------------------------
-// #Basket Summary
-// --------------------------
 
 
 
@@ -186,13 +172,11 @@
 // -----------------------------
 
 .basket-body {
-    padding: @widget__spacing;
     background-color: @ecombasket__bg-color;
 }
 
 // Basket List
 .basket-list {
-    padding: @widget__spacing;
     background-color: @ecombasket__list-bg-color;
 }
 
