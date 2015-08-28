@@ -36,7 +36,7 @@
 	.header-layout .left;
 
 	// Position (Options: .standard, .overlap)
-	.header-position .standard;
+	.header-position .overlap;
 
 	// BG Colour (Options: .dark, .light)
 	.header-color .light;
@@ -53,11 +53,11 @@
 
 	.content-inner-wrap {
 
-		// Height (Options: .small, .medium, .large)
-		.feature-height .medium;
+		// Height (Options: .small, .medium, .large, .full)
+		.feature-height .full;
 
 		// Position (Options: .standard, .overlap)
-		.feature-position .standard;
+		.feature-position .overlap;
 
 		// Alignment (Options: .left, .right, .center)
 		.feature-alignment .center;
@@ -567,6 +567,10 @@
 		@media @mobile {
 			min-height: 600px;
 		}
+	}
+	// Works best with 'overlap' option
+	.full {
+		min-height: 100vh;
 	}
 
 }
