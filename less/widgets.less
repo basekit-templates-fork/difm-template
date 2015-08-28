@@ -237,6 +237,11 @@
         color: @slideshow__description-color;
     }
 
+    // Caption
+    .caption {
+        background-color: hsla(hue(@slideshow__overlay-bg-color), saturation(@slideshow__overlay-bg-color), lightness(@slideshow__overlay-bg-color), 0.6);
+    }
+
     // Pagination
     .pagination-item {
         .button {
@@ -261,9 +266,6 @@
 .social-link {
     color: @social-icons__bg-color;
 }
-.social-name {
-    display: none;
-}
 
 
 
@@ -273,7 +275,6 @@
 // -----------------------------
 
 .twitter {
-    padding: 40px;
     background-color: @twitter-bg-color;
 }
 
