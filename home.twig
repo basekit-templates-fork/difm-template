@@ -23,25 +23,10 @@
 
 			<div class="site-content">
 				<div class="zone-content">
-					{{zone('main')|raw}}
+					{# {{zone('main')|raw}} #}
 				</div>
 			</div>
 
-		</div>
-
-		<div class="footer-image">
-
-			<span class="span footer-image-overlay"></span>
-
-			{{widget('image', 'footer-image', {
-			  'src': asset('/images/feature-image.jpg')
-			})|raw}}
-
-			<div class="footer-image-text">
-				{{widget('content', 'footer-image-text', { content: '
-					<h1>The finest baked goods in town!</h1>
-				'})|raw}}
-			</div>
 		</div>
 
 		{% include "includes/footer.twig" %}

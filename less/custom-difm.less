@@ -1,36 +1,116 @@
 // -------------------------------------
-// Masonry: LESS > Custom DIFM Variables
+// Variable Template: LESS > Custom DIFM
 // -------------------------------------
 
-#tdk-toolbar {
-	display: none!important;
+// Change the values below to achieve
+// different layouts and positioning
+
+
+// Site Options
+// ------------
+
+@site__width:         100%;   // Site width
+@site__content-width: 90%;    // Content width (wrapper)
+@site__spacing:       40px;   // Site spacing
+@widget__spacing:     30px;   // Widget spacing
+
+.site-container {
+
+	// Position (Options: .left, .right, .center)
+	.site-position .center;
+
+	// Layout (Options: .sidebar-left, .sidebar-right, .full)
+	.site-layout .full;
+
 }
 
 
-// -----------------------
-// Custom Colour Variables
-// -----------------------
+// Header Options
+// --------------
 
-// Site
-@site-bg-color:         @color-swatch1;
-@site-content-bg-color: @color-swatch1;
+@header__spacing: 20px; // Header spacing
+
+.template-header  {
+
+	// Layout (Options: .left, .right, .central)
+	.header-layout .left;
+
+	// Position (Options: .standard, .overlap)
+	.header-position .overlap;
+
+	// BG Colour (Options: .dark, .light)
+	.header-color .light;
+
+}
 
 
-// Layout
-@header-bg-color:       @site-bg-color;
-@footer-bg-color:       @site-bg-color;
-@footer-border-color:   @color-swatch3;
-@sidebar-bg-color:      @color-swatch4;
+// Feature Options
+// ---------------
 
-// Typography / Buttons
-@heading-color:         @color-swatch4;
-@paragraph-color:       @color-swatch5;
-@button-bg-color:       @color-swatch3;
+@feature__overlay-opacity: 0.6; // Feature opacity
 
-// Navigation
-@nav-text-color:        @color-swatch6;
-@nav-text-color-active: @color-swatch4;
-@nav-border-color:      #e4e4e4;
+.feature {
+
+	.content-inner-wrap {
+
+		// Height (Options: .small, .medium, .large)
+		.feature-height .medium;
+
+		// Position (Options: .standard, .overlap)
+		.feature-position .overlap;
+
+		// Alignment (Options: .left, .right, .center)
+		.feature-alignment .center;
+
+		// Parallax (Options: .on, .off)
+		.feature-parallax .on;
+	}
+
+	// Transparency (Options: .full-overlay, .type-overlay, .none)
+	.feature-transparency .type-overlay;
+
+}
+
+
+// Footer Options
+// --------------
+
+@footer__spacing:         100px; // Footer spacing
+@footer__parallax-height: 700px; // Footer parallax image
+
+.template-footer {
+
+	// Layout (Options: .single, .split)
+	.footer-layout .split;
+
+	// BG Colour (Options: .dark, .light)
+	.footer-color .dark;
+
+}
+
+
+// Button Options
+// --------------
+
+.button {
+
+	// Options: .solid, .transparent
+	.button-type .solid;
+
+}
+
+
+
+
+// Gallery Options
+// ---------------
+
+.gallery-item {
+
+	// Options: .full, .half, .thirds, .quarters
+	.gallery-layout .thirds;
+
+}
 
 
 
@@ -49,7 +129,7 @@
 		margin-right: auto;
 
 		.template-header {
-			padding-left: @site-spacing;
+			padding-left: @site__spacing;
 		}
 	}
 	.center {
@@ -59,7 +139,7 @@
 		margin-left: auto;
 
 		.main {
-			padding-right: @site-spacing;
+			padding-right: @site__spacing;
 		}
 	}
 
@@ -71,53 +151,208 @@
 
 .site-layout {
 
-	// Sidebar: Left
+	// Full
+	.full {
+		.site-container {
+			display: block;
+		}
+	}
+
+	// Sidebar Left
 	.sidebar-left {
 		.template-header {
-			width: 30%;
-			max-width: 380px;
+			position: fixed;
+			top: 0;
+			left: 0;
+
+			width: 20%;
 			height: 100vh;
-			padding: @site-spacing;
+			padding: @site__spacing;
+			box-shadow: 0 0 3px 4px rgba(110,110,110,0.1);
+			text-align: left;
+
+			@media @desktop {
+				position: relative;
+				width: 100%;
+				height: inherit;
+				padding: @header__spacing;
+				box-shadow: inherit;
+			}
+
+			.flex-container {
+				display: block;
+				width: 100%;
+
+				@media @desktop {
+					display: flex;
+				}
+				@media @tablet {
+					display: block;
+				}
+
+				.flex-item:first-child {
+					margin-right: 0;
+
+					@media @desktop {
+						margin-right: 20px;
+					}
+				}
+			}
 		}
-		.main {
-			width: 70%;
+		.companyname {
+			margin-top: 20px;
+
+			@media @desktop {
+				margin-top: 0;
+			}
+		}
+		.template-navigation {
+			margin-top: @site__spacing;
+
+			@media @desktop {
+				margin-top: 0;
+			}
+			@media @tablet {
+				margin-top: 20px;
+			}
+		}
+		.navigation-item {
+			display: block;
+			text-align: left;
+
+			@media @desktop {
+				display: inline-block;
+			}
+			@media @tablet {
+				display: block;
+			}
+
+			.item-name {
+				padding-right: 0;
+				padding-left: 0;
+
+				@media @desktop {
+					padding-right: 20px;
+					padding-left: 20px;
+				}
+				@media @tablet {
+					padding-right: 0;
+					padding-left: 0;
+				}
+			}
+		}
+
+		// Main Content
+		.feature,
+		.main,
+		.template-footer {
+			float: right;
+			width: 80%;
+
+			@media @desktop {
+				float: left;
+				width: 100%;
+			}
 		}
 	}
 
 	// Sidebar: Right
 	.sidebar-right {
 		.template-header {
-			order: 2;
-		}
-		.main {
-			order: 1;
-		}
+			position: fixed;
+			top: 0;
+			right: 0;
 
-		.template-header {
-			padding-right: 0;
-			padding-left: @site-spacing;
+			width: 20%;
+			height: 100vh;
+			padding: @site__spacing;
+			box-shadow: 0 0 3px 4px rgba(110,110,110,0.1);
 			text-align: right;
+
+			@media @desktop {
+				position: relative;
+				width: 100%;
+				height: inherit;
+				padding: @header__spacing;
+				box-shadow: inherit;
+				text-align: left;
+			}
+
+			.flex-container {
+				display: block;
+				width: 100%;
+
+				@media @desktop {
+					display: flex;
+				}
+				@media @tablet {
+					display: block;
+				}
+
+				.flex-item:first-child {
+					margin-right: 0;
+
+					@media @desktop {
+						margin-right: 20px;
+					}
+				}
+			}
+		}
+		.companyname {
+			margin-top: 20px;
+
+			@media @desktop {
+				margin-top: 0;
+			}
+		}
+		.template-navigation {
+			margin-top: @site__spacing;
+
+			@media @desktop {
+				margin-top: 0;
+			}
+			@media @tablet {
+				margin-top: 20px;
+			}
 		}
 		.navigation-item {
+			display: block;
 			text-align: right;
+
+			@media @desktop {
+				display: inline-block;
+			}
+			@media @tablet {
+				display: block;
+			}
+
+			.item-name {
+				padding-right: 0;
+				padding-left: 0;
+
+				@media @desktop {
+					padding-right: 20px;
+					padding-left: 20px;
+				}
+				@media @tablet {
+					padding-right: 0;
+					padding-left: 0;
+				}
+			}
 		}
-		.item-name--parent:before {
-			display: inline-block;
-		    border: 4px solid transparent;
-		    border-top-color: @font-swatch6-color;
-		    margin: 2px 8px;
-		    content: "";
-		}
-		.item-name--parent:after {
-			display: none;
+
+		// Main Content
+		.feature,
+		.main,
+		.template-footer {
+			float: left;
+			width: 80%;
+
+			@media @desktop {
+				width: 100%;
+			}
 		}
 	}
-
-	// Full
-	.full {
-		display: block;
-	}
-
 }
 
 
@@ -137,27 +372,27 @@
 
 		.navigation-item .item-name:hover,
 		.navigation-item.selected .item-name {
-			color: @site-bg-color;
+			color: @site__bg-color;
 		}
 		.navigation-item.folder .item-name:hover {
 			color: @heading-color;
 		}
 
 		.company-link {
-			color: @site-bg-color;
+			color: @site__bg-color;
 		}
 
 		.logo-image {
 			box-shadow: 0 0 10px rgba(0,0,0,0.1);
 		}
 
-		@media @tablet800px {
+		@media @tablet {
 
 			.navigation-toggle {
-				color: @site-bg-color;
+				color: @site__bg-color;
 			}
 			.navigation-body {
-				background-color: @header-bg-color;
+				background-color: @header__bg-color;
 			}
 			.navigation-list {
 				position: relative;
@@ -183,7 +418,7 @@
 			display: flex;
 			justify-content: space-between;
 
-			@media @tablet800px {
+			@media @tablet {
 				display: block;
 			}
 
@@ -202,7 +437,7 @@
 		display: block;
 		text-align: center;
 		.navigation-list {
-			padding-top: @header-spacing;
+			padding-top: @header__spacing;
 			text-align: center;
 		}
 		.company-link {
@@ -233,40 +468,66 @@
 // Header Color
 .header-color {
 
+	// Light
 	.light {
-		background-color: @header-bg-color;
+		background-color: @header__bg-color;
 
 		// Navigation
 		.navigation-item .item-name {
-		    color: @nav-text-color;
+		    color: @nav__text-color;
 		    text-transform: uppercase;
 		}
 		.navigation-item.selected .item-name {
-		    color: @nav-text-color-active;
+		    color: @brand-color;
 		}
 	}
+
+	// Dark
 	.dark {
 		background-color: @heading-color!important;
 		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 
 		.company-link {
-			color: @site-bg-color;
+			color: @site__bg-color;
+		}
+
+		// Navigation
+		.template-navigation {
+			border-color: lighten(@heading-color, 15%);
 		}
 		.navigation-item {
 
-			.item-name {
-				color: darken(@site-bg-color, 20%);
-
-				&:hover {
-					color: @site-bg-color;
+			&:hover,
+			&.selected .item-name {
+				color: @brand-color;
+			}
+			&:first-child {
+				@media @tablet {
+					border-color: lighten(@heading-color, 15%);
 				}
 			}
-			&.selected .item-name {
-				color: @site-bg-color;
+			&.folder .navigation-list {
+				background-color: darken(@heading-color, 10%);
+			}
+
+			.item-name {
+				color: darken(@site__bg-color, 30%);
+
+				&:hover {
+					color: @site__bg-color;
+				}
 			}
 		}
 		.navigation-list--children .navigation-item .item-name:hover {
 			color: @heading-color;
+		}
+		.item-name--parent:after {
+			border-top-color: darken(@site__bg-color, 30%);
+		}
+		.navigation-toggle {
+			@media @tablet {
+				color: @site__bg-color;
+			}
 		}
 
 	}
@@ -283,27 +544,27 @@
 	.small {
 		min-height: 400px;
 
-		@media @tablet800px {
+		@media @tablet {
 			min-height: 300px;
 		}
 	}
 	.medium {
 		min-height: 600px;
 
-		@media @tablet800px {
+		@media @tablet {
 			min-height: 500px;
 		}
-		@media @mobile650px {
+		@media @mobile {
 			min-height: 400px;
 		}
 	}
 	.large {
 		min-height: 800px;
 
-		@media @tablet800px {
+		@media @tablet {
 			min-height: 700px;
 		}
-		@media @mobile650px {
+		@media @mobile {
 			min-height: 600px;
 		}
 	}
@@ -316,10 +577,10 @@
 	.overlap {
 		padding-top: 110px!important;
 
-		@media @tablet800px {
+		@media @tablet {
 			padding-top: 196px!important;
 		}
-		@media @mobile650px {
+		@media @mobile {
 			padding-top: 246px!important;
 		}
 	}
@@ -349,14 +610,14 @@
 
 	.full-overlay {
 		.content-wrap {
-			background-color: hsla(hue(@feature-overlay-color), saturation(@feature-overlay-color), lightness(@feature-overlay-color), @feature-overlay-opacity);
+			background-color: hsla(hue(@feature__overlay-color), saturation(@feature__overlay-color), lightness(@feature__overlay-color), @feature__overlay-opacity);
 		}
 	}
 	.type-overlay {
 		.headline,
 		.strapline {
 			display: inline-block;
-			background-color: hsla(hue(@feature-overlay-color), saturation(@feature-overlay-color), lightness(@feature-overlay-color), @feature-overlay-opacity);
+			background-color: hsla(hue(@feature__overlay-color), saturation(@feature__overlay-color), lightness(@feature__overlay-color), @feature__overlay-opacity);
 		}
 		.headline {
 			padding: 14px 20px;
@@ -399,7 +660,7 @@
 		.flex-container--footer {
 			display: flex;
 
-			@media @mobile650px {
+			@media @mobile {
 				display: block;
 
 				.flex-item:last-child {
@@ -413,7 +674,7 @@
 			    flex-basis: 50%;
 			    max-width: 50%;
 
-			    @media @mobile650px {
+			    @media @mobile {
 					-webkit-flex-basis: 100%;
 				    -ms-flex-preferred-size: 100%;
 				    flex-basis: 100%;
@@ -429,17 +690,17 @@
 .footer-color {
 
 	.light {
-		background-color: @footer-bg-color;
+		background-color: @site__bg-color;
 	}
 	.dark {
-		background-color: @heading-color;
-		border-top: 4px solid @footer-border-color;
+		background-color: @footer__bg-color;
+		border-top: 4px solid @footer__border-color;
 
 		h1, h2, h3, h4 {
-			color: @site-bg-color;
+			color: @site__bg-color;
 		}
 		p {
-			color: darken(@site-bg-color, 30%);
+			color: darken(@site__bg-color, 30%);
 		}
 	}
 
@@ -486,264 +747,31 @@
 }
 
 
-
-
-
-// -----------------------
-// Template Elements
-// -----------------------
-
-// Site
-// ---------
-
-body {
-    background-color: @site-bg-color;
-}
-
-// Site Canvas
-.site-content {
-	position: relative;
-	display: block;
-	width: @site-content-width;
-	margin: 0 auto;
-}
-
-
-// Layout
+// Buttons
 // ----------
 
-.site-container {
-	// display: flex;
-	display: block;
-	max-width: @site-width;
-}
+.button-type {
 
+	.solid {
+		background-color: @button__bg-color;
 
-// Logo
-// ----------
-
-.logo {
-	line-height: 0;
-	font-size: 0;
-}
-
-
-// Company Name
-// ------------
-
-.companyname {
-    display: block;
-
-    @media @tablet800px {
-    	margin-top: 20px;
-    }
-}
-
-
-// Footer
-// ----------
-
-.template-footer {
-	position: relative;
-	z-index: 2;
-	padding: @footer-spacing 0;
-
-	@media @mobile650px {
-		padding: @footer-spacing * 0.7 0;
-	}
-
-	h1, h2, h3, h4, p {
-		margin-bottom: 20px;
-	}
-}
-
-// Footer Image
-.footer-image {
-	position: relative;
-	font-size: 0;
-
-    .imagewidget__image-link {
-    	width: 100vw;
-    	height: 100vh;
-	    position: fixed;
-	    top: 0;
-	    left: 0;
-	    right: 0;
-	    display: block;
-	    z-index: 1;
-    }
-    .image {
-    	width: 100%;
-    	height: 100%;
-		object-fit: cover;
-	    z-index: 1;
-	}
-	.imagewidget {
-		min-height: @footer-parallax-height;
-
-		@media @tablet800px {
-			min-height: @footer-parallax-height * 0.7;
-		}
-		@media @mobile650px {
-			min-height: @footer-parallax-height * 0.5;
+		&:hover {
+			background-color: @button__bg-color--hover;
+			color: @button__text-color;
 		}
 	}
-}
+	.transparent {
+		background-color: transparent;
+		border: 2px solid @button__border-color;
+		color: @button__border-color;
 
-.imagewidget__figure {
-	perspective: none;
-}
-
-.footer-image-overlay {
-	position: absolute;
-    top: 0;
-    bottom: 0;
-    z-index: 999;
-    width: 100%;
-    background-color: hsla(hue(@feature-overlay-color), saturation(@feature-overlay-color), lightness(@feature-overlay-color), @feature-overlay-opacity);
-}
-
-.footer-image-text {
-	position: absolute;
-    top: 45%;
-    left: 0;
-    right: 0;
-    z-index: 9000;
-    width: 90%;
-    margin: 0 auto;
-    text-align: center;
-
-	h1, h2, h3, h4, p {
-		color: @site-bg-color;
-	}
-}
-
-
-// Main Content
-// ------------
-
-.main {
-	position: relative;
-	z-index: 7000;
-	background-color: @site-bg-color;
-	padding: @site-spacing 0;
-}
-
-
-
-
-// Typography / Buttons
-// --------------------
-
-h1, h2, h3, h4, h5 {
-    color: @heading-color;
-}
-p {
-    color: @paragraph-color;
-}
-.button {
-	padding: 8px 24px;
-    background-color: @button-bg-color;
-    border-radius: 0;
-    text-transform: uppercase;
-    .transition(all 0.5s ease-out);
-
-    &:hover {
-        background-color: @font-swatch7-background-color-hover;
-    }
-
-}
-
-
-// Feature
-// ----------------
-
-.feature {
-	position: relative;
-	z-index: 999;
-
-	.background-image {
-		height: 100%;
-	    background-repeat: no-repeat;
-	    background-size: cover;
-	    background-position: center;
-	    background-attachment: fixed; // Parallax effect
-	}
-	.content-wrap {
-		width: 100%;
-		height: 100%;
-	}
-	.content-inner-wrap {
-		display: flex;
-	    flex-direction: column;
-	    justify-content: center;
-	    padding: 30px;
-
-	    height: 100%;
-	}
-	.headline {
-		text-transform: uppercase;
-
-		@media @tablet800px {
-	    	font-size: bkscale(@font-swatch8-font-size, 0.8);
-	    }
-	    @media @mobile650px {
-	    	font-size: bkscale(@font-swatch8-font-size, 0.65);
-	    	line-height: bkscale(@font-swatch8-line-height, 0.7);
-	    }
-	}
-	.strapline {
-		margin: 20px 0;
-
-		@media @tablet800px {
-	    	font-size: bkscale(@font-swatch9-font-size, 0.8);
-	    }
-	    @media @mobile650px {
-	    	font-size: bkscale(@font-swatch9-font-size, 0.7);
-	    }
-	}
-}
-
-.feature__content-wrap {
-	padding: 0;
-}
-
-
-// Inner Pages
-// -----------
-
-.page {
-	overflow: hidden;
-}
-
-.page-title {
-	background-color: #f3f3f3;
-	padding: 10px 0;
-}
-
-.page--default {
-	.template-header {
-		position: relative!important;
-
-		.header-color .light!important;
-
-		.company-link {
-			color: @heading-color;
+		&:hover {
+			background-color: transparent!important;
+			color: @button__border-color;
 		}
 	}
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

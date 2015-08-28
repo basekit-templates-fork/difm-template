@@ -1,122 +1,27 @@
+// -------------------------------------
+// Variable Template: Stylesheet
+// -------------------------------------
+
+#tdk-toolbar {
+    display: none!important;
+}
+
 // -----------------------------
 // Table of Contents
 // -----------------------------
 
-//  1.   Custom Site Varaibles
-//  2.   LESS Includes
-//  3.   Mixins
-//  4.   Global
-//  5.   Layout
-//  6.   Header
-
-
-
-// -----------------------
-// Custom Site Variables
-// -----------------------
-
-// Change the values below to achieve
-// different layouts and positioning
-
-
-// Site Options
-// ------------
-
-@site-width:         100%;   // Site width
-@site-content-width: 90%;    // Content width (wrapper)
-@site-spacing:       50px;   // Site spacing
-
-.site-container {
-
-    // Position (Options: .left, .right, .center)
-    .site-position .center;
-
-    // Layout (Options: .sidebar-left, .sidebar-right, .full)
-    .site-layout .full;
-
-}
-
-
-// Header Options
-// --------------
-
-@header-spacing: 20px; // Header spacing
-
-.template-header  {
-
-    // Layout (Options: .left, .right, .central)
-    .header-layout .left;
-
-    // Position (Options: .standard, .overlap)
-    .header-position .standard;
-
-    // BG Colour (Options: .dark, .light)
-    .header-color .light;
-
-}
-
-
-// Feature Options
-// ---------------
-
-@feature-overlay-opacity: 0.6;           // Feature opacity
-@feature-overlay-color: @color-swatch4;  // Feature BG color
-
-.feature {
-
-    .content-inner-wrap {
-
-        // Height (Options: .small, .medium, .large)
-        .feature-height .large;
-
-        // Position (Options: .standard, .overlap)
-        .feature-position .standard;
-
-        // Alignment (Options: .left, .right, .center)
-        .feature-alignment .center;
-
-        // Parallax (Options: .on, .off)
-        .feature-parallax .on;
-    }
-
-    // Transparency (Options: .full-overlay, .type-overlay, .none)
-    .feature-transparency .type-overlay;
-
-}
-
-
-// Footer Options
-// --------------
-
-@footer-spacing:         100px; // Footer spacing
-@footer-parallax-height: 700px; // Footer parallax image
-
-.template-footer {
-
-    // Layout (Options: .single, .split)
-    .footer-layout .split;
-
-    // BG Colour (Options: .dark, .light)
-    .footer-color .light;
-
-}
-
-
-// Gallery Options
-// ---------------
-
-.gallery-item {
-
-    // Options: .full, .half, .thirds, .quarters
-    .gallery-layout .thirds;
-
-}
-
-
+//  # LESS Includes
+//  # Mixins
+//  # Site
+//  # Header
+//  # Footer
+//  # Navigation
+//  # Buttons
+//  # Forms
 
 
 // -----------------------------
-// 2. LESS Includes
+// 1. LESS Includes
 // -----------------------------
 
 
@@ -126,303 +31,114 @@
 @import "@{templateCommon}/bk-less-framework.less";
 
 
-// Theme Includes
-// --------------
+// Template Includes
+// -----------------
 
-@import "@{templateLocal}/less/typography.less";  // Typography
-@import "@{templateLocal}/less/widgets.less";     // Widgets
-@import "@{templateLocal}/less/custom-difm.less"; // Custom DIFM
+@import "@{templateLocal}/less/widgets.less";           // Widgets
+@import "@{templateLocal}/less/color-variables.less";   // Variables
+@import "@{templateLocal}/less/custom-difm.less";       // Custom DIFM
 
 
 // Plugin Includes
 // ---------------
 
-@import "@{templateLocal}/less/plugins/plugin-blog.less";      // Plugin: Blog CSS
-@import "@{templateLocal}/less/plugins/plugin-menu.less";      // Plugin: Menu CSS
-@import "@{templateLocal}/less/plugins/plugin-ecommerce.less"; // Plugin: Ecommerce CSS
+@import "@{templateLocal}/less/plugins/plugin-blog.less";      // Plugin: Blog
+@import "@{templateLocal}/less/plugins/plugin-menu.less";      // Plugin: Menu
+@import "@{templateLocal}/less/plugins/plugin-ecommerce.less"; // Plugin: Ecommerce
 
-
-// -----------------------------
-// 3. Mixins
-// -----------------------------
-
-
-@tablet800px: ~"only screen and (max-width: 850px)";
-@mobile650px: ~"only screen and (max-width: 650px)";
-
-
-.border-radius (@radius: 6px) {
-    -webkit-border-radius: @radius;
-    -moz-border-radius: @radius;
-    border-radius: @radius;
-}
-
-.transition (@prop: all 0.5s ease) {
-    -webkit-transition: @prop;
-    -moz-transition:    @prop;
-    -ms-transition:     @prop;
-    -o-transition:      @prop;
-}
-
-.animation (@name, @duration: 2s, @ease: ease, @time: infinite, @direction: normal) {
-    -webkit-animation: @name @duration @ease @time @direction;
-    -moz-animation:    @name @duration @ease @time @direction;
-    -ms-animation:     @name @duration @ease @time @direction;
-    animation:         @name @duration @ease @time @direction;
-}
-
-.transform ( @transform: scale(1) ) {
-    -webkit-transform: @transform;
-    -ms-transform: @transform;
-    transform: @transform;
-
-}
-
-.gradient (@startColor: #eee, @endColor: white) {
-    background-color: @startColor;
-    background: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
-    background: -webkit-linear-gradient(top, @startColor, @endColor);
-    background: -moz-linear-gradient(top, @startColor, @endColor);
-    background: -ms-linear-gradient(top, @startColor, @endColor);
-    background: -o-linear-gradient(top, @startColor, @endColor);
-}
-
-.flex (@display: flex, @direction: row, @wrap: nowrap, @justify: space-between, @align: stretch, @align-items: flex-end) {
-    display: ~"-webkit-@{display}";
-    display: ~"-moz-@{display}";
-    display: ~"-ms-@{display}box"; // IE10 uses -ms-flexbox
-    display: ~"-ms-@{display}"; // IE11
-    display: @display;
-
-    -webkit-box-direction: normal;
-    -moz-box-direction: normal;
-    -webkit-box-orient: horizontal;
-    -moz-box-orient: horizontal;
-
-    -webkit-flex-direction: @direction;
-    -moz-flex-direction: @direction;
-    -ms-flex-direction: @direction;
-    flex-direction: @direction;
-
-
-    -webkit-flex-wrap: @wrap;
-    -moz-flex-wrap: @wrap;
-    -ms-flex-wrap: @wrap;
-    flex-wrap: @wrap;
-
-    -webkit-box-pack: justify;
-    -moz-box-pack: justify;
-    -ms-flex-pack: justify;
-
-    -webkit-justify-content: @justify;
-    -moz-justify-content: @justify;
-    -ms-justify-content: @justify;
-    justify-content: @justify;
-
-    -webkit-align-content: @align;
-    -moz-align-content: @align;
-    -ms-align-content: @align;
-    align-content: @align;
-
-    -webkit-align-items: @align-items;
-    -moz-align-items: @align-items;
-    -ms-align-items: @align-items;
-    align-items: @align-items;
-}
 
 
 
 // -----------------------------
-// 4. Global
+// #Mixins
 // -----------------------------
+
+@desktop: ~"only screen and (max-width: 1024px)";
+
+
+
+
+// -----------------------------
+// #Site
+// -----------------------------
+
+body {
+    background-color: @site__bg-color;
+}
+
+// Site Canvas
+.site-content {
+    position: relative;
+    display: block;
+    width: @site__content-width;
+    margin: 0 auto;
+}
 
 // Links
-.content-widget a {
-    border-bottom: 1px dotted @color-swatch2;
-    .transition(all 0.25s ease-out);
+a {
+    color: @link-color;
+
     &:hover {
-        border-bottom: 1px dotted darken(@color-swatch2, 4%);
-        color: darken(@color-swatch2, 4%);
-        text-decoration: none;
-        .transition(all 0.25s ease-in);
+        color: darken(@link-color, 15%);
     }
 }
 
-.emailaddress a {
-    .transition(.5s all ease-out);
-    &:hover {
-        color: darken(@color-swatch2, 4%);
-        text-decoration: none;
-    }
+
+// Layout
+// ----------
+
+.site-container {
+    max-width: @site__width;
 }
 
-// Blockquote
-blockquote {
-    border-left: 4px solid fade(@color-swatch2, 40%);
-    margin: 30px 0 35px;
-    padding-left: 25px;
-    &:before {
-        content: "";
-    }
-}
-
-// Pre + Code
-pre { font-size: 14px; }
-
-code { padding: 2px 5px; }
-
-
-// Form Elements
-legend { display: none; }
-
-label {
-    color: @color-swatch4;
-    font-family: @font-swatch7-font-family;
-    font-size: bkscale(@font-swatch7-font-size, 0.92);
-    font-weight: @font-swatch4-font-weight;
-    text-transform: uppercase;
-}
-
-input.input,
-.textarea,
-select,
-.input--search.product-listing__input,
-.product-filters .input--search  {
-    border: 2px solid;
-    border-radius: 0;
-    box-shadow: none;
-    -webkit-appearance: none;
-    color: lighten(@font-swatch5-color, 10%);
-    font-family: bkscale(@font-swatch5-font-family, 0.9);
-    font-size: bkscale(@font-swatch5-font-size, 0.88);
-    line-height: 1.2;
-    height: 48px;
-
-    //iOS Fix
-    //-webkit-appearance: none;
-}
-
-// Focus State
-input[type="search"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus,
-textarea:focus,
-.input--single-line:focus {
-    border: 2px solid lighten(@font-swatch5-color, 20%);
-    .transition(.3s all ease-in);
-}
-
-// General Select Elements
-select {
-    width: 100%;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border: 2px solid lighten(@font-swatch5-color, 40%);
-    border-radius: 0;
-}
-
-select::-ms-expand{
-  display: none;
-}
-
-.select-wrap {
+// Main
+.main {
     position: relative;
-    &:after {
-        font-family: 'FontAwesome', sans-serif;
-        font-size: 14px;
-        text-rendering: auto;
-        content:"\f0d7";
-        position: absolute;
-        right: 14px;
-        top: 22%;
-    }
+    z-index: 7000;
+    background-color: @site__content-bg-color;
+    padding: @site__spacing 0;
 }
 
 
-// -----------------------------
-// 5. Layout
-// -----------------------------
-
-.home-page, .default-page {
-    .clearfix;
-}
-
-
-
-// -----------------------------
-// 6. Header
-// -----------------------------
-
-.company-link:hover {
-    text-decoration: none;
-}
-
-
-// Social
-// -------
-
-.widget__profile .socialicons {
-    .social-name { display: none; }
-    .icon {
-        color: @color-swatch5;
-        text-decoration: none!important;
-        &:before {
-            font-size: 22px;
-            margin-right: 0;
-        }
-        &:hover {
-            .transition(all .5s ease-out);
-        }
-    }
-    .icon--twitter:hover { color: #4099FF; }
-    .icon--facebook:hover { color: #335795; }
-    .icon--googleplus:hover { color: #D34836; }
-    .icon--youtube:hover { color: #D34836; }
-    .icon--rss:hover { color: #FF6200; }
-    .icon--linkedin:hover { color: #03659A; }
-}
-
-// Twitter Feed
-// ------------
-
-.twitter {
-    .avatar {
-        float: left;
-        max-width: 98px;
-        width: 15%;
-        margin-right: 0;
-        padding-right: 5%;
-    }
-    .tweet-wrap {
-        float: left;
-        width: 85%;
-    }
-    .tweet-item {
-        .clearfix;
-    }
-}
-
-// Yelp Review
+// Inner Pages
 // -----------
 
-.review-list {
-    list-style: none;
-    margin-left: 0;
+.page {
+    overflow: hidden;
+}
+
+.page-title {
+    background-color: #f3f3f3;
+    padding: 10px 0;
+}
+
+.page--default {
+    .template-header {
+        position: relative!important;
+
+        .header-color .light!important;
+
+        .company-link {
+            color: @heading-color;
+        }
+    }
 }
 
 
-// Header
-// ----------
+
+
+// -----------------------------
+// #Header
+// -----------------------------
 
 .template-header {
     position: relative;
     z-index: 8001;
     width: 100%;
     max-width: 100%;
-    padding: @header-spacing 0;
+    padding: @header__spacing 0;
 
-    @media @tablet800px {
+    @media @tablet {
         padding-bottom: 0!important;
         margin-bottom: 0;
     }
@@ -430,7 +146,7 @@ select::-ms-expand{
     .flex-container {
         align-items: center;
 
-        @media @tablet800px {
+        @media @tablet {
             .flex-item:first-child,
             .flex-item:nth-child(2) {
                 display: inline-block;
@@ -440,11 +156,40 @@ select::-ms-expand{
     }
 }
 
+
+
+
+// -----------------------------
+// #Footer
+// -----------------------------
+
+.template-footer {
+    position: relative;
+    z-index: 2;
+    padding: @footer__spacing 0;
+
+    @media @mobile {
+        padding: @footer__spacing * 0.7 0;
+    }
+
+    h1, h2, h3, h4, p {
+        margin-bottom: 20px;
+    }
+}
+
+
+
+
+// -----------------------------
+// #Navigation
+// -----------------------------
+
+
 // Template Navigation
 .template-navigation {
-    @media @tablet800px {
-        margin-top: @header-spacing;
-        border-top: 1px solid @nav-border-color;
+    @media @tablet {
+        margin-top: 20px;
+        border-top: 1px solid @nav__border-color;
     }
 }
 
@@ -452,7 +197,7 @@ select::-ms-expand{
 .navigation-list {
     margin: 0;
 
-    @media @tablet800px {
+    @media @tablet {
         display: none;
         text-align: left;
     }
@@ -465,42 +210,27 @@ select::-ms-expand{
 .navigation-item {
     display: inline-block;
     vertical-align: middle;
-    border-bottom: 0;
 
-    @media @tablet800px {
+    @media @tablet {
         display: block;
 
         &:first-child {
             padding-top: 10px;
-            border-top: 1px solid @nav-border-color;
-        }
-    }
-
-    &:hover {
-        .navigation-list--children {
-            position: absolute;
-            -webkit-transform: translateY(0);
-            transform: translateY(0);
-            transition: height 0.75s ease-in-out, opacity 0.75s ease-in-out, visibility 0.75s ease-in-out;
-            -webkit-transition: height 0.75s ease-in-out, opacity 0.75s ease-in-out, visibility 0.75s ease-in-out;
-            -moz-transition:    height 0.75s ease-in-out, opacity 0.75s ease-in-out, visibility 0.75s ease-in-out;
-            -ms-transition:     height 0.75s ease-in-out, opacity 0.75s ease-in-out, visibility 0.75s ease-in-out;
-            -o-transition:      height 0.75s ease-in-out, opacity 0.75s ease-in-out, visibility 0.75s ease-in-out;
-            visibility: visible;
+            border-top: 1px solid @nav__border-color;
         }
     }
 
     .item-name {
         padding-left: 30px;
-        color: @nav-text-color;
+        color: @nav__text-color;
         text-transform: uppercase;
 
-        @media @tablet800px {
+        @media @tablet {
             padding-left: 0;
         }
 
         &:hover {
-            color: @nav-text-color-active;
+            color: @nav__text-color--hover;
         }
 
         &.item-name--parent {
@@ -509,7 +239,7 @@ select::-ms-expand{
     }
 
     &.selected .item-name {
-        color: @nav-text-color-active;
+        color: @nav__text-color--selected;
     }
 
     &:last-child .item-name {
@@ -521,11 +251,12 @@ select::-ms-expand{
 .navigation-item.folder .navigation-list {
     position: absolute;
     min-width: 150px;
+    background-color: @nav__list-bg-color;
 
     .navigation-item {
         display: block;
         width: 100%;
-        background-color: @site-bg-color;
+        background-color: @site__bg-color;
     }
     .navigation-item--child {
         padding: 0 10px;
@@ -535,29 +266,106 @@ select::-ms-expand{
         }
     }
 }
+// Folder arrow
+.item-name--parent:after {
+    display: inline-block;
+    vertical-align: middle;
+    content: "";
+    margin-left: 4px;
+    border: 5px solid transparent;
+    border-top-color: @nav__text-color;
+}
 
 // Toggle Button
 .navigation-toggle {
     display: none;
+
+    @media @tablet {
+        display: block;
+        width: 100%;
+        padding: 12px 0;
+        background-color: transparent;
+        color: @heading-color;
+        text-align: left;
+        text-transform: uppercase;
+
+        &:hover {
+            background: transparent;
+        }
+    }
+
     &:after {
         content: "+";
         position: absolute;
         right: 0;
     }
-    @media @tablet800px {
-        background: transparent;
-        border-bottom: 1px solid @color-swatch7;
-        color: @color-swatch4;
-        display: block;
-        font-weight: @font-swatch4-font-weight;
-        padding: 12px 0;
-        text-align: left;
-        text-transform: uppercase;
-        width: 100%;
-        &:hover {
-            background: transparent;
-        }
+}
+
+
+
+
+// -----------------------------
+// #Buttons
+// -----------------------------
+
+.button {
+    padding: 6px 16px
+}
+
+
+
+
+// -----------------------------
+// #Forms
+// -----------------------------
+
+input[type="search"],
+input[type="email"],
+input[type="password"],
+textarea,
+.input--single-line {
+    height: inherit!important;
+    padding: 9px 12px;
+
+    &:focus {
+        border-color: @brand-color;
     }
 }
+
+// Contact, Sign Up Form
+.contactform,
+.signupform {
+    background-color: @form-bg-color;
+
+    // Legend
+    .legend {
+        width: 100%;
+        padding: 10px 20px;
+        background-color: @form-legend-bg-color;
+        color: @form-legend-text-color;
+    }
+
+    // Form Body
+    .form-body {
+        padding: 30px;
+    }
+
+    // Label
+    .label {
+        color: @form-label-text-color;
+    }
+
+    // Input
+    .input:focus {
+        border-color: @brand-color;
+    }
+}
+
+
+
+
+
+
+
 
 
