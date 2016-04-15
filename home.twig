@@ -5,21 +5,21 @@
 <!-- Page Content -->
 <div class="page  page--home">
 
-	<div class="container">
-		{% include "snippets/headers/header--align-justify.twig" %}
-	</div>
 
-	{{widget('feature', 'feature', {
-	  'header': 'profile',
-	  'strapline': 'profile',
-	  'defaultBgImg': asset('images/feature-image.jpg'),
-	  'positionTopPercentage': '100',
-	  'showBtn': true,
-	  'buttonText': 'Button',
-	  'action': 'external',
-	  'url': 'http://docs.basekit.com',
-	  'target': '_blank'
-	})|raw}}
+{% include "snippets/headers/header--standard.twig" %}
+
+
+	<!-- Feature -->
+	<div class="feature-height--medium  feature-alignment--middle-center  feature-overlay-type--box  feature-parallax--on">
+		{{widget('feature', 'feature', {
+		  'header': 'profile',
+		  'strapline': 'profile',
+		  'defaultBgImg': asset('images/feature-image1.jpg'),
+		  'positionTopPercentage': '100',
+		  'showBtn': true,
+		  'buttonText': 'Button'
+		})|raw}}
+	</div>
 
 	<!-- Zone Content -->
 	<div id="main-scroll" class="main-content">
@@ -33,8 +33,17 @@
 
 			<p>Vivamus aliquet ante in erat pretium tristique. Nullam quis urna lacus. Vestibulum augue lectus, fringilla at nibh quis, mattis placerat dui. Integer dolor eros, auctor a laoreet non, auctor et felis. Nam lacinia aliquet nisl. Morbi condimentum, nibh vel interdum lacinia, risus nisl luctus elit, eu ultricies ante nulla non odio. Cras id vulputate massa. Pellentesque tincidunt purus mi, nec commodo elit ultricies vitae. Pellentesque placerat tempus felis eget faucibus. In cursus condimentum nulla et consectetur. In malesuada ex ut hendrerit ultricies.</p>
 
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ornare lectus et felis molestie, a venenatis est pellentesque. Integer euismod fringilla ligula a tempus. Pellentesque a ornare eros. Pellentesque semper neque ac odio imperdiet, tincidunt finibus sapien suscipit. Proin placerat imperdiet rutrum. Suspendisse turpis dolor, blandit vel odio ac, varius scelerisque arcu. Curabitur tempus justo imperdiet, volutpat felis et, eleifend lorem. Phasellus fringilla, nisl feugiat interdum semper, lectus libero placerat eros, id luctus ex est eu velit. Sed et sodales augue. Sed quis fermentum nisi. Aliquam nec urna sit amet diam dapibus semper a id magna. Nulla non enim eget quam gravida vulputate. Proin consectetur lorem id consectetur sodales. Integer dapibus sapien sem, ac lacinia nisi aliquet ac. Nulla facilisi.</p>
+
+			<p>Vestibulum pharetra leo a urna lacinia aliquet. Maecenas viverra non quam nec aliquet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla facilisi. Etiam malesuada erat at purus consequat, et interdum mauris rutrum. Morbi dignissim eros sit amet lacus sodales gravida. Nulla porttitor erat tellus, nec pellentesque dui placerat pharetra. Quisque et elit sollicitudin, malesuada tortor at, laoreet lorem.</p>
+
+			<p>Sed tincidunt nisi non semper aliquam. Sed fringilla in mauris aliquet sagittis. Nullam malesuada at quam eget lacinia. Nam aliquet elit turpis, quis ornare augue ornare id. Praesent luctus lacus in metus malesuada fermentum. Praesent id pellentesque felis. Nam euismod placerat lectus.</p>
+
+			<p>Vivamus aliquet ante in erat pretium tristique. Nullam quis urna lacus. Vestibulum augue lectus, fringilla at nibh quis, mattis placerat dui. Integer dolor eros, auctor a laoreet non, auctor et felis. Nam lacinia aliquet nisl. Morbi condimentum, nibh vel interdum lacinia, risus nisl luctus elit, eu ultricies ante nulla non odio. Cras id vulputate massa. Pellentesque tincidunt purus mi, nec commodo elit ultricies vitae. Pellentesque placerat tempus felis eget faucibus. In cursus condimentum nulla et consectetur. In malesuada ex ut hendrerit ultricies.</p>
+
 		</div>
 	</div>
+
 
 </div>
 
@@ -45,23 +54,23 @@
 	<script>
 
 		// Fixed position and fade out when scrolling
-		var scrollEffect = function (elem) {
+		// var scrollEffect = function (elem) {
 
-			// How high the window is
-			var window_height = window.innerHeight;
+		// 	// How high the window is
+		// 	var window_height = window.innerHeight;
 
-			// Apply styles as user scrolls
-			elem.setAttribute(
-				"style", "opacity:" + Math.max(0, parseFloat(1-(1.8/window_height*window.pageYOffset)).toFixed(2)) + "; -webkit-transform: translateY(" + window.pageYOffset + "px)"
-			);
+		// 	// Apply styles as user scrolls
+		// 	elem.setAttribute(
+		// 		"style", "opacity:" + Math.max(0, parseFloat(1-(1.8/window_height*window.pageYOffset)).toFixed(2)) + "; -webkit-transform: translateY(" + window.pageYOffset + "px)"
+		// 	);
 
-		};
+		// };
 
-		var elem = document.querySelector('.content-inner-wrap');
+		// var elem = document.querySelector('.content-inner-wrap');
 
-		window.onscroll = function(e) {
-			scrollEffect(elem);
-		};
+		// window.onscroll = function(e) {
+		// 	scrollEffect(elem);
+		// };
 
 	</script>
 

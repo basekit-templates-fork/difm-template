@@ -11,27 +11,36 @@
 @templateLocal: "";
 
 
-// ------------------------------
-// Table of Contents
-// ------------------------------
-
-//  #Imports
-//  #Site Styles
-
-
-
-
 // -----------------------------
 // #Imports
 // -----------------------------
 
 
-@import "@{templateCommon}/bk-less-framework-v8.less";   // Framework (v8)
-@import "@{templateLocal}/less/typography.less";         // Typography
-@import "@{templateLocal}/less/mixins.less";             // Mixins
-@import "@{templateLocal}/less/variables.less";          // Variables
+// #Template Imports
+// -----------------------------
 
-@import "@{templateLocal}/snippets/headers.less";        // Snippets
+
+@import "@{templateCommon}/bk-less-framework.less";             // Framework
+@import "@{templateLocal}/less/mixins.less";                    // Mixins
+@import "@{templateLocal}/less/variables.less";                 // Variables
+
+
+// #Snippet Imports
+// -----------------------------
+
+
+// Note: Delete any unused import files and includes below.
+
+
+// Headers
+@import "@{templateLocal}/snippets/headers/headers.less";
+
+// Navigation
+@import "@{templateLocal}/snippets/navigation/navigation--simple/navigation--simple.less";
+@import "@{templateLocal}/snippets/navigation/navigation--fullscreen/navigation--fullscreen.less";
+
+// Widgets
+@import "@{templateLocal}/widgets/feature.less";
 
 
 
@@ -42,6 +51,7 @@
 
 
 body {
+    height: 100%;
     background-color: #f2f2f2;
 }
 
@@ -52,6 +62,7 @@ body {
     height: 100%;
     margin: 0 auto;
     background-color: @color__body--background;
+    overflow: hidden;
 
     @media @tablet {
         background-color: #fff;
@@ -68,10 +79,12 @@ body {
 // Main
 .main-content {
     position: relative;
-    background-color: #fff;
-    box-shadow: 0px 0px 40px 0px rgba(28, 24, 24, 0.04);
+    padding: @value__global-spacing--desktop 0;
 
     @media @tablet {
-        box-shadow: none;
+        padding: @value__global-spacing--tablet 0;
+    }
+    @media @mobile {
+        padding: @value__global-spacing--mobile 0;
     }
 }

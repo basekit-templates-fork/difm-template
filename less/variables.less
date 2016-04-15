@@ -12,14 +12,13 @@
 @value__site-container--width: 100%;
 @value__content-container--width: 90%;
 
-// Site Spacing
-@value__spacing--desktop: 100px;
-@value__spacing--laptop:  70px;
-@value__spacing--tablet:  60px;
-@value__spacing--mobile:  40px;
+// Global Spacing
+@value__global-spacing--desktop: 80px;
+@value__global-spacing--tablet:  40px;
+@value__global-spacing--mobile:  20px;
 
-
-@header-spacing: 20px; // Header spacing
+// Header Spacing
+@value__header-spacing: 20px;
 
 @feature-overlay-opacity: 0.6;           // Feature opacity
 @feature-overlay-color: @color-swatch4;  // Feature BG color
@@ -35,11 +34,12 @@
 // ------------------------------
 
 
-@color__primary: @color__link--text;
-@color__secondary: #f5f6f7;
+@color__primary: @color-swatch3;
+@color__secondary: @color-swatch2;
 
 
 @color__body--background:#fff;
+@color__site-body--border: #eaeaea;
 @color__link--text:#314beb;
 
 
@@ -124,6 +124,7 @@
 
 @color__feature-content--background: #26292f;
 
+@color__feature-headline--background: @color__feature-content--background;
 @font__feature-headline--font-family: @font-swatch8-font-family;
 @font__feature-headline--font-size: @font-swatch8-font-size;
 @font__feature-headline--font-weight: @font-swatch8-font-weight;
@@ -131,6 +132,7 @@
 @font__feature-headline--letter-spacing: @font-swatch8-letter-spacing;
 @color__feature-headline--text: @font-swatch8-color;
 
+@color__feature-strapline--background: @color__feature-content--background;
 @font__feature-strapline--font-family: @font-swatch9-font-family;
 @font__feature-strapline--font-size: @font-swatch9-font-size;
 @font__feature-strapline--font-weight: @font-swatch9-font-weight;
@@ -191,12 +193,12 @@
 @font-swatch5-letter-spacing:inherit;
 
 @font-swatch6-font-family:"Montserrat";
-@font-swatch6-font-size:15px;
+@font-swatch6-font-size:14px;
 @font-swatch6-font-weight:inherit;
-@font-swatch6-line-height:inherit;
+@font-swatch6-line-height:32px;
 @font-swatch6-letter-spacing:inherit;
 @font-swatch6-color:@color-swatch6;
-@font-swatch6-color-hover:@color-swatch2;
+@font-swatch6-color-hover:@color-swatch3;
 @font-swatch6-background-color:@color-swatch2;
 @font-swatch6-background-color-hover:@color-swatch1;
 
@@ -212,18 +214,18 @@
 @font-swatch8-font-family:"Montserrat";
 @font-swatch8-font-size:40px;
 @font-swatch8-font-weight:inherit;
-@font-swatch8-line-height:50px;
+@font-swatch8-line-height:44px;
 @font-swatch8-letter-spacing:inherit;
 @font-swatch8-color:@color-swatch1;
 
-@font-swatch9-font-family:"Montserrat";
-@font-swatch9-font-size:22px;
+@font-swatch9-font-family:"Merriweather";
+@font-swatch9-font-size:15px;
 @font-swatch9-font-weight:inherit;
-@font-swatch9-line-height:50px;
+@font-swatch9-line-height:28px;
 @font-swatch9-letter-spacing:inherit;
 @font-swatch9-color:@color-swatch1;
 
-@font-swatch10-font-family:"Helvetica, arial";
+@font-swatch10-font-family:"Montserrat";
 @font-swatch10-font-size:24px;
 @font-swatch10-font-weight:inherit;
 @font-swatch10-line-height:50px;

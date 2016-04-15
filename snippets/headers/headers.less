@@ -1,0 +1,105 @@
+// -------------------------------------
+// DIFM Template: Snippets
+// -------------------------------------
+
+
+// ------------------------------
+// Table of Contents
+// ------------------------------
+
+//  #Global Header
+
+//  #Header: Align Justify
+//  #Header: Align Left
+//  #Header: Align Center
+
+
+
+
+// ------------------------------
+// #Global Header
+// ------------------------------
+
+
+.template-header {
+    padding: @value__header-spacing;
+}
+
+
+
+
+// #Header: Standard
+// ------------------------------
+
+
+.template-header--standard {
+    .flex-display;
+    .align-items(center);
+    .justify-content(space-between);
+
+    @media @tablet {
+        display: block;
+    }
+
+
+    // Header Item: Logo / Companyname
+    .header-item--logo-companyname {
+        .flex-display;
+        .align-items(center);
+    }
+
+
+    // Logo
+    .logo {
+        margin-right: 20px;
+
+        @media @tablet {
+            margin-right: 10px;
+        }
+    }
+}
+
+
+
+
+// #Header: Left
+// ------------------------------
+
+
+.template-header--left {
+    .flex-display;
+    .align-items(center);
+    .justify-content(flex-start);
+
+    @media @tablet {
+        display: block;
+    }
+
+
+    // Header Item: Logo / Companyname
+    .header-item--logo-companyname {
+        .flex-display;
+        .align-items(center);
+        min-width: 400px;
+    }
+
+    // Logo
+    .logo {
+        margin-right: 20px;
+
+        @media @tablet {
+            margin-right: 10px;
+        }
+    }
+}
+
+
+
+
+// #Header: Center
+// ------------------------------
+
+
+.template-header--center {
+    text-align: center;
+}
