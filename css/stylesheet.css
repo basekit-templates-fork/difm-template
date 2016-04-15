@@ -2528,7 +2528,6 @@ button.icon--add.added:before {
   -ms-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  min-width: 400px;
 }
 .template-header--standard .logo {
   margin-right: 20px;
@@ -2598,7 +2597,7 @@ button.icon--add.added:before {
     display: none;
   }
 }
-.template-navigation--simple .navigation-list.open {
+.template-navigation--simple .open .navigation-list:not(.navigation-list--children) {
   display: block;
 }
 @media only screen and (max-width: 769px) {
@@ -2641,12 +2640,38 @@ button.icon--add.added:before {
   position: absolute;
   min-width: 150px;
   padding: 10px 0;
+  overflow: hidden;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -ms-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  white-space: inherit;
+}
+@media only screen and (max-width: 769px) {
+  .template-navigation--simple .navigation-list--children {
+    position: relative;
+    display: none;
+    height: 0;
+    padding-bottom: 0;
+    opacity: 0;
+  }
 }
 .template-navigation--simple .navigation-list--children .navigation-item--child {
   padding: 0 10px;
 }
 .template-navigation--simple .navigation-list--children .item-name {
   padding: 4px 10px;
+}
+.template-navigation--simple .navigation-item.folder.open .navigation-list--children {
+  display: block;
+  opacity: 1;
+  height: auto;
+  padding: 10px 0;
+}
+@media only screen and (max-width: 480px) {
+  .template-navigation--simple .navigation-item.folder.open .navigation-list--children {
+    padding: 0;
+  }
 }
 .template-navigation--simple .navigation-toggle {
   display: none;
@@ -2777,7 +2802,6 @@ button.icon--add.added:before {
   position: absolute;
   z-index: 10000;
   min-width: 150px;
-  padding: 10px 0;
   overflow: hidden;
   -webkit-transition: opacity 0.5s ease-in-out;
   -moz-transition: opacity 0.5s ease-in-out;
@@ -2790,7 +2814,6 @@ button.icon--add.added:before {
     position: relative;
     display: none;
     height: 0;
-    padding-bottom: 0;
     opacity: 0;
     background-color: #d9291a;
   }
@@ -3246,6 +3269,7 @@ body {
 }
 .site-container {
   width: 100%;
+  max-width: 80%;
   height: 100%;
   margin: 0 auto;
   background-color: #fff;
@@ -3257,7 +3281,7 @@ body {
   }
 }
 .container {
-  width: 90%;
+  width: 100%;
   max-width: 90%;
   margin: 0 auto;
 }
