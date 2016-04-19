@@ -1,0 +1,84 @@
+// -------------------------------------
+// DIFM Template: Snippets
+// -------------------------------------
+
+
+// ------------------------------
+// Table of Contents
+// ------------------------------
+
+//  #Global Sidebar
+
+//  #Sidebar: Left
+
+
+
+
+// ------------------------------
+// #Global Sidebar
+// ------------------------------
+
+
+.page--sidebar {
+    .flex-display; // Sidebar layout
+
+    @media @tablet {
+        display: block; // Return to standard layout
+    }
+}
+
+.template-sidebar {
+    min-width: @value__sidebar--width;
+    padding: @value__global-spacing--desktop 20px;
+    background-color: @color__sidebar--background;
+
+    @media @tablet {
+        padding: @value__header--spacing;
+    }
+}
+
+
+
+
+// ------------------------------
+// #Sidebar: Left
+// ------------------------------
+
+
+// -----------------------------------
+
+//  *** LAYOUT INFO ***
+
+//  1. Logo
+//  2. Company Name
+//  3. Navigation
+
+// -----------------------------------
+
+
+.template-sidebar--standard {
+
+    // Header Item: Logo / Companyname
+    .sidebar-item--logo-companyname {
+        padding-bottom: @value__global-spacing--desktop;
+        text-align: center;
+
+        @media @tablet {
+            padding-bottom: @value__global-spacing--tablet;
+        }
+        @media @mobile {
+            padding-bottom: @value__global-spacing--mobile;
+        }
+    }
+
+    // Header Item: Navigation
+    .sidebar-item--navigation {
+
+    }
+
+
+    // Logo
+    .logo {
+        margin-bottom: 10px;
+    }
+}

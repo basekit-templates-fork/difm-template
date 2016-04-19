@@ -1,10 +1,10 @@
 <!-- Header: Standard -->
 <header class="template-header  template-header--standard">
 	<div class="header-item  header-item--logo-companyname">
-		{{widget('logo', 'logo', {"defaultlogo": asset('images/logo.png')})|raw}}
-		{{widget('companyname', 'companyname', {"business": "profile" })|raw}}
+		{{widget('logo', 'header-logo', {"defaultlogo": asset('images/logo.png')})|raw}}
+		{{widget('companyname', 'header-companyname', {"business": "profile" })|raw}}
 	</div>
 	<div class="header-item  header-item--navigation">
-        {% include "snippets/navigation/navigation--fullscreen/navigation--fullscreen.twig" %}
+        {% include "snippets/navigation/nav--simple/nav--simple.twig" %}
 	</div>
 </header>

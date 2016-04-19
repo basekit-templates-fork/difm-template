@@ -35,9 +35,14 @@
 // Headers
 @import "@{templateLocal}/snippets/headers/headers.less";
 
+// Sidebars
+@import "@{templateLocal}/snippets/sidebars/sidebars.less";
+
 // Navigation
-@import "@{templateLocal}/snippets/navigation/navigation--simple/navigation--simple.less";
-@import "@{templateLocal}/snippets/navigation/navigation--fullscreen/navigation--fullscreen.less";
+@import "@{templateLocal}/snippets/navigation/nav--simple/nav--simple.less";
+@import "@{templateLocal}/snippets/navigation/nav--fullscreen/nav--fullscreen.less";
+@import "@{templateLocal}/snippets/navigation/nav--fullscreen-closed/nav--fullscreen-closed.less";
+@import "@{templateLocal}/snippets/navigation/nav--sidebar/nav--sidebar.less";
 
 // Widgets
 @import "@{templateLocal}/widgets/feature.less";
@@ -66,7 +71,7 @@ body {
     overflow: hidden;
 
     @media @tablet {
-        background-color: #fff;
+        max-width: 100%;
     }
 }
 
@@ -77,9 +82,21 @@ body {
     margin: 0 auto;
 }
 
-// Main
-.main-content {
+
+
+
+// Main / Zone Content
+// ------------------------------
+
+
+.main-content,
+.zone-content {
     position: relative;
+}
+
+
+// Page: Standard
+.page--standard .main-content {
     padding: @value__global-spacing--desktop 0;
 
     @media @tablet {
@@ -89,3 +106,16 @@ body {
         padding: @value__global-spacing--mobile 0;
     }
 }
+
+// Page: Sidebar
+.page--sidebar .zone-content {
+    padding: @value__global-spacing--desktop 0;
+
+    @media @tablet {
+        padding: @value__global-spacing--tablet 0;
+    }
+    @media @mobile {
+        padding: @value__global-spacing--mobile 0;
+    }
+}
+

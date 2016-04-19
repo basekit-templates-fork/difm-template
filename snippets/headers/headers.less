@@ -9,9 +9,10 @@
 
 //  #Global Header
 
-//  #Header: Align Justify
-//  #Header: Align Left
-//  #Header: Align Center
+//  #Header: Standard
+//  #Header: Standard Reverse
+//  #Header: Logo on Top
+//  #Header: Logo Center
 
 
 
@@ -22,14 +23,25 @@
 
 
 .template-header {
-    padding: @value__header-spacing;
+    padding: @value__header--spacing;
 }
 
 
 
 
+// ------------------------------
 // #Header: Standard
 // ------------------------------
+
+
+// -----------------------------------
+
+//  *** LAYOUT INFO ***
+
+//  1. Logo & Company Name (left)
+//  2. Navigation (right)
+
+// -----------------------------------
 
 
 .template-header--standard {
@@ -46,6 +58,16 @@
     .header-item--logo-companyname {
         .flex-display;
         .align-items(center);
+        min-width: 370px;
+
+        @media @mobile {
+            display: block;
+        }
+    }
+
+    // Header Item: Navigation
+    .header-item--navigation {
+        .flex(1 1 auto);
     }
 
 
@@ -56,20 +78,34 @@
         @media @tablet {
             margin-right: 10px;
         }
+        @media @mobile {
+            margin-bottom: 10px;
+        }
     }
 }
 
 
 
 
-// #Header: Left
+// ------------------------------
+// #Header: Standard Reverse
 // ------------------------------
 
 
-.template-header--left {
+// -----------------------------------
+
+//  *** LAYOUT INFO ***
+
+//  1. Navigation (left)
+//  2. Logo & Company Name (right)
+
+// -----------------------------------
+
+
+.template-header--standard-reverse {
     .flex-display;
     .align-items(center);
-    .justify-content(flex-start);
+    .justify-content(space-between);
 
     @media @tablet {
         display: block;
@@ -80,8 +116,18 @@
     .header-item--logo-companyname {
         .flex-display;
         .align-items(center);
-        min-width: 400px;
+        min-width: 370px;
+
+        @media @mobile {
+            display: block;
+        }
     }
+
+    // Header Item: Navigation
+    .header-item--navigation {
+        .flex(1 1 auto);
+    }
+
 
     // Logo
     .logo {
@@ -90,16 +136,98 @@
         @media @tablet {
             margin-right: 10px;
         }
+        @media @mobile {
+            margin-right: 0;
+            margin-bottom: 10px;
+        }
     }
 }
 
 
 
 
-// #Header: Center
+// ------------------------------
+// #Header: Logo on Top
 // ------------------------------
 
 
-.template-header--center {
+// -----------------------------------
+
+//  *** LAYOUT INFO ***
+
+//  1. Logo (center)
+//  2. Company Name (center)
+//  3. Navigation (center)
+
+// -----------------------------------
+
+
+.template-header--logo-on-top {
     text-align: center;
+
+    // Navigation List
+    .navigation-list {
+        text-align: center;
+    }
+
+    // Navigation Link
+    .navigation-item .item-name {
+        padding: 0 15px;
+    }
+
+    // Logo
+    .logo {
+        margin-bottom: 10px;
+    }
+}
+
+
+
+
+// ------------------------------
+// #Header: Logo Center
+// ------------------------------
+
+
+// -----------------------------------
+
+//  *** LAYOUT INFO ***
+
+//  1. Profile Widget (left)
+//  2. Company Name & Logo (center)
+//  3. Navigation (right)
+
+// -----------------------------------
+
+
+.template-header--logo-center {
+    .flex-display;
+    .align-items(center);
+    .justify-content(space-between);
+
+    @media @tablet {
+        display: block;
+    }
+
+
+    // Header Item
+    .header-item {
+        width: 33.333%;
+    }
+
+
+    // Header Item: Logo / Companyname
+    .header-item--logo-companyname {
+        text-align: center;
+    }
+
+
+    // Logo
+    .logo {
+        margin-bottom: 20px;
+
+        @media @tablet {
+            margin-bottom: 10px;
+        }
+    }
 }

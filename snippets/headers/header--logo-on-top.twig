@@ -1,0 +1,6 @@
+<!-- Header: Align Logo on Top -->
+<header class="template-header  template-header--logo-on-top">
+	{{widget('logo', 'header-logo', {"defaultlogo": asset('images/logo.png')})|raw}}
+	{{widget('companyname', 'header-companyname', {"business": "profile" })|raw}}
+    {% include "snippets/navigation/nav--simple/nav--simple.twig" %}
+</header>

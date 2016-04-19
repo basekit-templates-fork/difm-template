@@ -1,0 +1,183 @@
+// -------------------------------------
+// DIFM Template: Simple Navigation
+// -------------------------------------
+
+
+// In: 'Snippets > Navigation > Navigation Simple'
+
+
+
+// ------------------------------
+// #Template Navigation
+// ------------------------------
+
+
+.template-navigation--simple {
+
+    @media @tablet {
+        margin-top: @value__header--spacing;
+        margin-bottom: -@value__header--spacing; // Removes header padding
+        border-top: 1px solid @color__site-body--border;
+    }
+
+
+
+
+    // Navigation List
+    // ------------------------------
+
+
+    .navigation-list {
+        margin: 0;
+
+        @media @tablet {
+            display: none;
+        }
+    }
+
+    // Open
+    .open .navigation-list:not(.navigation-list--children) {
+        display: block;
+    }
+
+
+
+
+
+
+    // Navigation Item
+    // ------------------------------
+
+
+    .navigation-item {
+
+        @media @tablet {
+            display: block;
+
+            &:first-child {
+                padding-top: 10px;
+                border-top: 1px solid @color__site-body--border;
+            }
+            &:last-child {
+                padding-bottom: 10px;
+            }
+        }
+
+        // Selected
+        &.selected .item-name {
+            color: @color__navigation--text--hover;
+        }
+
+        // Navigation Text
+        .item-name {
+            @media @tablet {
+                padding: 10px 0;
+            }
+        }
+
+    }
+
+
+
+
+    // Navigation Link
+    // ------------------------------
+
+
+    .navigation-item .item-name {
+        padding: 0 0 0 30px;
+
+        @media @tablet {
+            padding: 10px 0;
+        }
+    }
+
+
+
+
+    // Dropdown Menu
+    // ------------------------------
+
+
+    // Dropdown Arrow
+    .item-name--parent:after {
+        display: inline-block;
+        vertical-align: middle;
+        content: "";
+        margin-left: 4px;
+        border: 5px solid transparent;
+        border-top-color: #000;
+    }
+
+
+    // Dropdown Menu List
+    .navigation-list--children {
+        position: absolute;
+        min-width: 150px;
+        padding: 10px 0;
+        overflow: hidden;
+        .transition(opacity 0.5s ease-in-out);
+        white-space: inherit;
+
+        // Hide until click (JS)
+        @media @tablet {
+            position: relative;
+            display: none;
+            height: 0;
+            padding-bottom: 0;
+            opacity: 0;
+        }
+
+        .navigation-item--child {
+            padding: 0 10px;
+        }
+
+        .item-name {
+            padding: 4px 10px;
+        }
+    }
+
+    // Nav Open
+    .navigation-item.folder.open .navigation-list--children {
+        display: block;
+        opacity: 1;
+        height: auto;
+        padding: 10px 0;
+
+        @media @mobile {
+            padding: 0;
+        }
+    }
+
+
+
+
+
+    // Toggle Button
+    // ------------------------------
+
+
+    .navigation-toggle {
+        display: none;
+
+        &:after {
+            content: "+";
+            position: absolute;
+            right: 0;
+        }
+
+        @media @tablet {
+            display: block;
+            width: 100%;
+            padding: 12px 0;
+            background-color: transparent;
+            color: @color__navigation--text;
+            text-align: left;
+
+            &:hover {
+                background: transparent;
+            }
+        }
+    }
+
+}

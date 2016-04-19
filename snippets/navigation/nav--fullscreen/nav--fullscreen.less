@@ -207,10 +207,6 @@
         display: none;
 
         // Middle Bar
-        position: absolute;
-        right: 0;
-        top: -52px;
-        z-index: 99999;
         width: 50px;
         height: 38px;
         margin: 0;
@@ -223,7 +219,16 @@
         text-indent: -9999px;
 
         @media @tablet {
+            position: absolute;
+            z-index: 99999;
+            top: -52px;
+            right: 0;
             display: block;
+        }
+        @media @mobile {
+            position: relative;
+            top: 0;
+            margin-left: auto;
         }
 
         // Top & Bottom Bar
