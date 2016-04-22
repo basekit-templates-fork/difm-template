@@ -32,6 +32,7 @@
 
         @media @tablet {
             display: none;
+            text-align: left;
         }
     }
 
@@ -115,9 +116,10 @@
         position: absolute;
         min-width: 150px;
         padding: 10px 0;
-        overflow: hidden;
+        background-color: darken(@color__body--background, 5%);
         .transition(opacity 0.5s ease-in-out);
         white-space: inherit;
+        overflow: hidden;
 
         // Hide until click (JS)
         @media @tablet {
@@ -130,6 +132,10 @@
 
         .navigation-item--child {
             padding: 0 10px;
+
+            &:first-child {
+                border-top: none;
+            }
         }
 
         .item-name {

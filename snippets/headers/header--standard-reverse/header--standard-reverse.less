@@ -1,0 +1,59 @@
+// -----------------------------------------
+// DIFM Template: Header Standard Revrse
+// -----------------------------------------
+
+
+// In: 'Snippets > Headers > Standard Reverse'
+
+
+// -----------------------------------
+
+//  *** LAYOUT INFO ***
+
+//  1. Navigation (left)
+//  2. Logo & Company Name (right)
+
+// -----------------------------------
+
+
+.template-header--standard-reverse {
+    .flex-display;
+    .align-items(center);
+    .justify-content(space-between);
+    padding: @value__header--spacing;
+
+    @media @tablet {
+        display: block;
+    }
+
+
+    // Header Item: Logo / Companyname
+    .header-item--logo-companyname {
+        .flex-display;
+        .align-items(center);
+        min-width: 370px;
+
+        @media @mobile {
+            display: block;
+        }
+    }
+
+    // Header Item: Navigation
+    .header-item--navigation {
+        .flex(1 1 auto);
+    }
+
+
+    // Logo
+    .logo {
+        margin-right: 20px;
+
+        @media @tablet {
+            margin-right: 10px;
+        }
+        @media @mobile {
+            margin-right: 0;
+            margin-bottom: 10px;
+        }
+    }
+}

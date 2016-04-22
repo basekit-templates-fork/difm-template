@@ -1,12 +1,14 @@
 <!-- Sidebar: Standard -->
 <div class="template-sidebar  template-sidebar--standard">
-    <div class="sidebar-item  sidebar-item--logo-companyname">
-	   {{widget('logo', 'logo', {"defaultlogo": asset('images/logo.png')})|raw}}
-	   {{widget('companyname', 'companyname', {"business": "profile" })|raw}}
-    </div>
-    <div class="sidebar-item  sidebar-item--navigation">
-        <nav class="template-navigation  template-navigation--sidebar">
-            {{widget('extendednavigation', 'navigation', {"align":"left"})|raw}}
-        </nav>
+    <div class="template-sidebar-wrapper">
+        <div class="sidebar-item  sidebar-item--logo-companyname">
+    	   {{widget('logo', 'logo', {"defaultlogo": asset('images/logo.png')})|raw}}
+    	   {{widget('companyname', 'companyname', {"business": "profile" })|raw}}
+        </div>
+        <div class="sidebar-item  sidebar-item--navigation">
+            <nav class="template-navigation  template-navigation--sidebar">
+                {{widget('extendednavigation', 'navigation', {"align":"left"})|raw}}
+            </nav>
+        </div>
     </div>
 </div>

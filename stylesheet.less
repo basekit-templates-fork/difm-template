@@ -16,7 +16,7 @@
 // -----------------------------
 
 
-// #Template Imports
+// #Template Imports (Required)
 // -----------------------------
 
 
@@ -33,10 +33,16 @@
 
 
 // Headers
-@import "@{templateLocal}/snippets/headers/headers.less";
+@import "@{templateLocal}/snippets/headers/header--standard/header--standard.less";
+@import "@{templateLocal}/snippets/headers/header--standard-reverse/header--standard-reverse.less";
+@import "@{templateLocal}/snippets/headers/header--logo-on-top/header--logo-on-top.less";
+@import "@{templateLocal}/snippets/headers/header--logo-center/header--logo-center.less";
+
+// Footers
+@import "@{templateLocal}/snippets/footers/footer--central/footer--central.less";
 
 // Sidebars
-@import "@{templateLocal}/snippets/sidebars/sidebars.less";
+@import "@{templateLocal}/snippets/sidebars/sidebar--standard.less";
 
 // Navigation
 @import "@{templateLocal}/snippets/navigation/nav--simple/nav--simple.less";
@@ -75,8 +81,8 @@ body {
     }
 }
 
-// Container
-.container {
+// Content Container
+.content-container {
     width: 100%;
     max-width: @value__content-container--width;
     margin: 0 auto;
@@ -118,4 +124,3 @@ body {
         padding: @value__global-spacing--mobile 0;
     }
 }
-

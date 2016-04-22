@@ -1,0 +1,87 @@
+// -----------------------------------
+// DIFM Template: Sidebar Standard
+// -----------------------------------
+
+
+// In: 'Snippets > Sidebars > Sidebar Standard'
+
+
+// ------------------------------
+
+//  *** LAYOUT INFO ***
+
+//  1. Logo
+//  2. Company Name
+//  3. Navigation
+
+// ------------------------------
+
+
+
+
+
+// Sidebar Page Layout
+// ------------------------------
+
+
+.page--sidebar {
+    .flex-display; // Sidebar layout
+    height: 100%;
+
+    @media @tablet {
+        display: block; // Return to standard layout
+    }
+}
+
+
+
+
+
+// Sidebar Standard
+// ------------------------------
+
+
+.template-sidebar--standard {
+    position: relative;
+    min-width: @value__sidebar--width;
+    max-width: @value__sidebar--width;
+    background-color: @color__sidebar--background;
+
+    @media @tablet {
+        max-width: 100%;
+        min-width: 100%;
+    }
+
+
+    // Sidebar Wrapper
+    .template-sidebar-wrapper {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        max-width: @value__sidebar--width;
+        padding: @value__global-spacing--desktop 40px;
+        overflow: scroll;
+
+        @media @tablet {
+            position: relative;
+            padding: 20px;
+            max-width: 100%;
+        }
+    }
+
+
+    // Header Item: Logo / Companyname
+    .sidebar-item--logo-companyname {
+        padding-bottom: @value__global-spacing--desktop;
+        text-align: center;
+
+        @media @tablet {
+            padding-bottom: 0;
+        }
+    }
+
+    // Logo
+    .logo {
+        margin-bottom: 10px;
+    }
+}

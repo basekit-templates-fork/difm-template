@@ -3,7 +3,7 @@
 // -------------------------------------
 
 
-// In: 'Snippets > Navigation > Navigation Simple'
+// In: 'Snippets > Navigation > Sidebar'
 
 
 
@@ -14,13 +14,21 @@
 
 .template-navigation--sidebar {
 
+    @media @tablet {
+        margin-top: @value__header--spacing;
+        margin-bottom: -@value__header--spacing; // Removes header padding
+        border-top: 1px solid @color__site-body--border;
+    }
+
+
+
 
     // Navigation List
     // ------------------------------
 
 
     .navigation-list {
-        // margin: 0;
+        margin: 0;
 
         @media @tablet {
             display: none;
@@ -33,12 +41,37 @@
     }
 
 
+
+
     // Navigation Item
     // ------------------------------
 
 
     .navigation-item {
         display: block;
+
+        @media @tablet {
+            display: block;
+
+            &:first-child {
+                padding-top: 10px;
+                border-top: 1px solid @color__site-body--border;
+            }
+            &:last-child {
+                padding-bottom: 10px;
+            }
+        }
+    }
+
+
+
+
+    // Navigation Link
+    // ------------------------------
+
+
+    .navigation-item .item-name {
+        padding: 10px 0;
     }
 
 
@@ -80,10 +113,26 @@
 
         .navigation-item--child {
             padding: 0 10px;
+
+            &:first-child {
+                border-top: none;
+            }
         }
 
         .item-name {
             padding: 4px 10px;
+        }
+    }
+
+    // Nav Open
+    .navigation-item.folder.open .navigation-list--children {
+        display: block;
+        opacity: 1;
+        height: auto;
+        padding: 10px 0;
+
+        @media @mobile {
+            padding: 0;
         }
     }
 

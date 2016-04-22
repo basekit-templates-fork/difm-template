@@ -1,0 +1,108 @@
+// -----------------------------------
+// DIFM Template: Footer Column 3
+// -----------------------------------
+
+
+// In: 'Snippets > Footers > Footer Column 3'
+
+
+// --------------------------------------
+
+//  *** LAYOUT INFO ***
+
+//  1. Profile Widget: Address (center)
+//  2. Profile Widget: Copyright (center)
+
+// --------------------------------------
+
+
+.template-footer--central {
+    padding: @value__footer--spacing 0;
+    background-color: @color__footer--background;
+    text-align: center;
+
+    @media @tablet {
+        padding: @value__global-spacing--tablet 20px;
+    }
+    @media @mobile {
+        padding: @value__global-spacing--mobile 20px;
+    }
+
+
+
+    // Footer Item
+    // -----------------------------
+
+
+    .footer-item {
+        max-width: 75%;
+        margin: 0 auto;
+
+        &--profile-last p {
+            padding-bottom: 0;
+        }
+    }
+
+
+
+
+    // Profile Widget
+    // -----------------------------
+
+
+    // Form
+    .form-body {
+        .flex-display;
+        .align-items(flex-end);
+        .justify-content(center);
+        margin: 20px 0;
+    }
+
+    // Form Group
+    .form-group {
+        margin: 0;
+
+        &:first-child {
+            .flex-display;
+            .align-items(center);
+        }
+    }
+
+    // Input
+    .input {
+        min-height: 36px;
+        margin-right: 10px;
+    }
+
+    // Label
+    .label {
+        .flex(1 0 auto);
+        margin: 0 10px 0 0;
+    }
+
+
+    // Headline / Strapline
+    .headline,
+    .strapline {
+        padding-bottom: 10px;
+    }
+
+    // Address
+    .address-line {
+        display: inline-block;
+
+        @media @mobile {
+            padding-bottom: 0;
+        }
+
+        &:after {
+            position: relative;
+            left: -4px;
+            content: ",";
+        }
+        &:last-child:after {
+            display: none;
+        }
+    }
+
+}
