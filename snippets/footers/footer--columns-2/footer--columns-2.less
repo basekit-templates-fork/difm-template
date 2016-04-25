@@ -1,32 +1,48 @@
 // -----------------------------------
-// DIFM Template: Footer Central
+// DIFM Template: Footer Column 2
 // -----------------------------------
 
 
-// In: 'Snippets > Footers > Footer Central'
+// In: 'Snippets > Footers > Footer Column 2'
 
 
 // --------------------------------------
 
 //  *** LAYOUT INFO ***
 
-//  1. Profile Widget: Address (center)
-//  2. Profile Widget: Copyright (center)
+//  1. Column Left: Content & Profile
+//  2. Column Right: Content & Profile
 
 // --------------------------------------
 
 
-.template-footer--central {
+.template-footer--columns-2 {
     padding: @value__global-spacing--desktop 0;
     background-color: @color__footer--background;
-    text-align: center;
 
     @media @tablet {
-        padding: @value__global-spacing--tablet 20px;
+        padding: @value__global-spacing--tablet 0;
+        text-align: center;
     }
     @media @mobile {
-        padding: @value__global-spacing--mobile 20px;
+        padding: @value__global-spacing--mobile 0;
     }
+
+
+
+    // Row
+    // -----------------------------
+
+
+    .row {
+        .flex-display;
+        .flex-wrap(wrap);
+        .align-items(center);
+        .justify-content(center);
+        margin-left: -@value__gutter-spacing;
+        margin-right: -@value__gutter-spacing;
+    }
+
 
 
 
@@ -35,8 +51,13 @@
 
 
     .footer-item {
-        max-width: 75%;
-        margin: 0 auto;
+        .flex-basis(50%);
+        padding: 0 @value__gutter-spacing;
+
+        @media @tablet {
+            .flex-basis(100%);
+            padding: 10px @value__gutter-spacing;
+        }
 
         &--profile-last p {
             padding-bottom: 0;
